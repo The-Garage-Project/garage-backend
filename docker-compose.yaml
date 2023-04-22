@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mariadb:
+    image: mariadb
+    container_name: garage-db
+    environment:
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    ports:
+      - ${MARIADB_PORT}:3306
+    volumes:
+      - ./db/:/var/lib/mysql
