@@ -1,8 +1,7 @@
-package com.garageproject.gp.Entities;
+package com.garageproject.gp.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.*;
 
 @Data

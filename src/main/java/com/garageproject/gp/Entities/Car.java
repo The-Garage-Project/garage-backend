@@ -1,9 +1,10 @@
-package com.garageproject.gp.Entities;
+package com.garageproject.gp.entities;
 
-import com.garageproject.gp.Enums.FuelTypeEnum;
-import com.garageproject.gp.Enums.TransmissionEnum;
+import com.garageproject.gp.enums.FuelTypeEnum;
+import com.garageproject.gp.enums.TransmissionEnum;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.context.annotation.Primary;
 
 @Data
 @Entity
@@ -13,7 +14,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     //brand name
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brandName;
     //model
@@ -27,7 +28,7 @@ public class Car {
     //transmission
     private TransmissionEnum transmission;
     //category
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private CarCategory category;
     //color

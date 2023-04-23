@@ -1,4 +1,4 @@
-package com.garageproject.gp.Enums;
+package com.garageproject.gp.enums;
 
 public enum FuelTypeEnum {
     DIESEL, PETROL, HYBRID, ELECTRIC
