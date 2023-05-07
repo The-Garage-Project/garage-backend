@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
@@ -69,5 +70,10 @@ public class CarServiceImpl implements CarService {
             throw new NoSuchElementException("The car with id: " + id + " does not exist.");
         }
         carRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Car> search(String searchKeyword) {
+        return carRepository.findByBrandNameContaining(searchKeyword);
     }
 }

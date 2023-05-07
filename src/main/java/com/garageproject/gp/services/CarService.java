@@ -2,6 +2,7 @@ package com.garageproject.gp.services;
 
 import com.garageproject.gp.entities.Car;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CarService {
@@ -14,4 +15,6 @@ public interface CarService {
     void updateCar(Car car, Long id);
 
     void deleteCar(Long id);
+
+    List<Car> search(String searchKeyword);
 }
