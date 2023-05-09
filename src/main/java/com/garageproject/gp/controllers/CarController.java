@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -64,5 +65,20 @@ public class CarController {
         }
         log.info("Deleted car with id: " + id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/search/{searchKeyword}")
+    public ResponseEntity<Iterable<Car>> search(@PathVariable String searchKeyword) {
+        List<Car> results;
+        try {
+            results = carService.search(searchKeyword);
+        } catch (Exception ex) {
+            log.error("Failed to search for keyword: " + searchKeyword + " with exception: " + ex);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        if (results.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(results);
     }
 }
