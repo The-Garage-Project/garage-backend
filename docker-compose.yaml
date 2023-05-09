@@ -1,5 +1,23 @@
 version: "3.8"
 services:
+  app:
+    build:
+      context: .
+    container_name: garage-app
+    image: garage-project-app
+    environment:
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+      - MARIADB_HOST=${MARIADB_HOST}
+      - MARIADB_PORT=${MARIADB_PORT}
+      - KEYCLOAK_CLIENT_ID=${KEYCLOAK_CLIENT_ID}
+      - KEYCLOAK_AUTH_SERVER_URL=${KEYCLOAK_AUTH_SERVER_URL}
+      - KEYCLOAK_REALM=${KEYCLOAK_REALM}
+      - BACKEND_PORT=${BACKEND_PORT}
+    ports:
+      - ${BACKEND_PORT}:8080
+
   mariadb:
     image: mariadb
     container_name: garage-db
