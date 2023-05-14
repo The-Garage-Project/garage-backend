@@ -148,5 +148,8 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:6.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-resource-server:6.0.3" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.6.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:24.0.1" level="project" />
   </component>
 </module>
