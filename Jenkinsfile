@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'apache-maven-3.9.1'
-    }
-
     options {
         // Skip running the pipeline for all branches except 'main'
         skipDefaultCheckout(true)
