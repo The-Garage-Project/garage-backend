@@ -5,12 +5,12 @@ pipeline {
         // Skip running the pipeline for all branches except 'main'
         skipDefaultCheckout(true)
     }
-    
+
     stages {
         stage('Checkout') {
             steps {
                 // Checkout source code repository
-                git branch:  'main', url: 'https://github.com/The-Garage-Project/garage-devops.git'
+                git branch:  'main', url: 'https://github.com/The-Garage-Project/garage-backend.git'
             }
         }
 
