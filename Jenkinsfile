@@ -8,7 +8,7 @@ pipeline {
 
     triggers {
         // Trigger the pipeline on commit to the specified branch
-        scm('*/main')
+        githubPush('*/main')
     }
 
     stages {
