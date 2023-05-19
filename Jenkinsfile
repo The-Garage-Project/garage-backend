@@ -6,12 +6,8 @@ pipeline {
         skipDefaultCheckout(true)
     }
 
-    triggers {
-        // Trigger the pipeline on commit to the specified branch
-        githubPush('*/main')
-    }
-
     stages {
+        when { branch 'main' }
         stage('Checkout') {
             steps {
                 // Checkout source code repository
