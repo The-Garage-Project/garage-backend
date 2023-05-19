@@ -6,8 +6,11 @@ pipeline {
         skipDefaultCheckout(true)
     }
 
+    triggers {
+        githubPush()
+    }
+
     stages {
-        when { branch 'main' }
         stage('Checkout') {
             steps {
                 // Checkout source code repository
