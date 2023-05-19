@@ -6,6 +6,11 @@ pipeline {
         skipDefaultCheckout(true)
     }
 
+    triggers {
+        // Trigger the pipeline on commit to the specified branch
+        scm('*/main')
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -44,10 +49,5 @@ pipeline {
             // Perform actions when the build fails
             echo 'Build failed!'
         }
-    }
-
-    // Only trigger the pipeline on changes to the 'main' branch
-    when {
-        changeset "main"
     }
 }
