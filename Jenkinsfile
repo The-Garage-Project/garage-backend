@@ -20,13 +20,6 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
-
-        stage('Package') {
-            steps {
-                // Package application
-                sh 'mvn package'
-            }
-        }
     }
 
     post {
