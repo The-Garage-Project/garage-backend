@@ -21,8 +21,6 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile and build application
-                sh 'export MAVEN_HOME=/opt/maven'
-                sh 'export PATH=$PATH:$MAVEN_HOME/bin'
                 sh 'mvn clean install -DskipTests'
             }
         }
