@@ -20,31 +20,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    // Authenticate with Docker Hub
-                    docker.withRegistry('https://index.docker.io/v1/', 'DOCKER_CREDENTIALS') {
-                        // Build the Docker image
-                        def dockerImage = docker.build("spyrosmoux/garage-backend:latest")
-
-                        // Tag the Docker image with latest
-                        dockerImage.tag("spyrosmoux/garage-backend:latest")
-                    }
-                }
+                sh 'echo $DOCKER_CREDENTIALS_PWD | docker login -u$DOCKER_CREDENTIALS_USR --password-stdin'
+                sh 'docker build -t spyrosmoux/garage-backend:latest .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                script {
-                    // Authenticate with Docker Hub
-                    docker.withRegistry('https://index.docker.io/v1/', 'DOCKER_CREDENTIALS') {
-                        // Push the Docker image to Docker Hub
-                        dockerImage.push()
-
-                        // Push the latest tag to Docker Hub
-                        dockerImage.push("spyrosmoux/garage-backend:latest")
-                    }
-                }
+                sh 'docker push spyrosmoux/garage-backend:latest'
             }
         }
     }
