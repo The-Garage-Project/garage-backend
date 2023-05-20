@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'echo $DOCKER_CREDENTIALS_PWD | docker login -u$DOCKER_CREDENTIALS_USR --password-stdin'
+                sh 'docker login -u$DOCKER_CREDENTIALS_USR -p$DOCKER_CREDENTIALS_PWD'
                 sh 'docker build -t spyrosmoux/garage-backend:latest .'
             }
         }
