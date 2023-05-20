@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_CREDENTIALS = credentials('DOCKER_CREDENTIALS')
+    }
+
     stages {
         stage('Checkout Backend') {
             steps {
@@ -14,16 +18,32 @@ pipeline {
             }
         }
 
-        stage('Build Backend Docker') {
+        stage('Build Docker Image') {
             steps {
-                dockerImage = docker.build("spyrosmoux/garage-backend:latest")
+                script {
+                    // Authenticate with Docker Hub
+                    docker.withRegistry('https://index.docker.io/v1/', 'DOCKER_CREDENTIALS') {
+                        // Build the Docker image
+                        def dockerImage = docker.build("spyrosmoux/garage-backend:latest")
+
+                        // Tag the Docker image with latest
+                        dockerImage.tag("spyrosmoux/garage-backend:latest")
+                    }
+                }
             }
         }
 
-        stage('Push Backend Docker') {
+        stage('Push Docker Image') {
             steps {
-                withDockerRegistry([ credentialsId: "DOCKERHUB_CREDENTIALS", url: "" ]) {
+                script {
+                    // Authenticate with Docker Hub
+                    docker.withRegistry('https://index.docker.io/v1/', 'DOCKER_CREDENTIALS') {
+                        // Push the Docker image to Docker Hub
                         dockerImage.push()
+
+                        // Push the latest tag to Docker Hub
+                        dockerImage.push("spyrosmoux/garage-backend:latest")
+                    }
                 }
             }
         }
