@@ -20,14 +20,16 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'echo $DOCKER_CREDENTIALS_PWD | docker login --username $DOCKER_CREDENTIALS_USR --password-stdin'
                 sh 'docker build -t spyrosmoux/garage-backend:latest .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push spyrosmoux/garage-backend:latest'
+                withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDENTIALS', passwordVariable: 'DOCKER_CREDENTIALS_PSW', usernameVariable: 'DOCKER_CREDENTIALS_USR')]) {
+                        	sh "docker login -u ${env.DOCKER_CREDENTIALS_USR} -p ${env.DOCKER_CREDENTIALS_PSW}"
+                          sh 'docker push spyrosmoux/garage-backend:latest'
+                        }
             }
         }
     }
