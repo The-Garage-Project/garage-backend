@@ -17,7 +17,7 @@
         dest: /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar
 
     - name: Start java application
-      command: java -jar /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar
+      command: nohup java -jar /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar &
 
     - name: Copy Docker Compose file
       copy:
