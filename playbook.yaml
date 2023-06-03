@@ -11,7 +11,7 @@
     - name: Copy jar file
       copy:
         src: ./target/gp-0.0.1-SNAPSHOT.jar
-        dest: /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jarc
+        dest: /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar
 
     - name: Start java application
       command: java -jar gp-0.0.1-SNAPSHOT.jar
