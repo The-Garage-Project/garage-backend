@@ -1,10 +1,8 @@
 version: "3.8"
 services:
   app:
-    build:
-      context: .
     container_name: garage-app
-    image: garage-project-app
+    image: spyrosmoux/garage-backend:latest
     environment:
       - MARIADB_USER=${MARIADB_USER}
       - MARIADB_PASSWORD=${MARIADB_PASSWORD}
@@ -68,6 +66,7 @@ services:
 
   mailhog:
     image: mailhog/mailhog:latest
+    container_name: garage-mailhog
     restart: always
     ports:
       - 1025:1025
