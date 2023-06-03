@@ -8,6 +8,9 @@
         src: ./.env
         dest: /home/devops/garage-project/.env
 
+    - name: Export env variables
+      command: export $(grep -v '^#' ./.env | xargs)
+
     - name: Copy jar file
       copy:
         src: ./target/gp-0.0.1-SNAPSHOT.jar
