@@ -1,8 +1,6 @@
 ---
 - name: Deploy Docker Compose
-  hosts: localhost
-  remote_user: devops
-  become: true
+  hosts: all
 
   tasks:
     - name: Copy .env file for java application
