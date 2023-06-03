@@ -1,6 +1,6 @@
 ---
 - name: Deploy Docker Compose
-  hosts: all
+  hosts: localhost
 
   tasks:
     - name: Copy .env file for java application
