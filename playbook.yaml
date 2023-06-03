@@ -8,6 +8,10 @@
         src: ./.env
         dest: /home/devops/garage-project/.env
 
+    - name: Copy jar file
+      src: ./gp-0.0.1-SNAPSHOT.jar
+      dest: /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar
+
     - name: Start java application
       command: java -jar gp-0.0.1-SNAPSHOT.jar
 
