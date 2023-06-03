@@ -9,7 +9,7 @@
         dest: /home/devops/garage-project/.env
 
     - name: Export env variables
-      command: export $(grep -v '^#' ./.env | xargs)
+      command: export $(grep -v '^#' .env | xargs)
 
     - name: Copy jar file
       copy:
