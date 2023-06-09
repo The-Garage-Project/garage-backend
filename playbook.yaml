@@ -12,6 +12,7 @@
       copy:
         src: ./export-env.sh
         dest: /home/devops/garage-project/export-env.sh
+        mode: preserve
 
     - name: Export env variables
       shell: "/bin/sh -c '/home/devops/garage-project/export-env.sh'"
