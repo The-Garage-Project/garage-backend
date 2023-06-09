@@ -18,7 +18,7 @@ services:
     container_name: garage-keycloak
     image: quay.io/keycloak/keycloak:20.0.1
     command:
-      - start-dev
+      - start-dev --import-realm
     volumes:
       - ./docker/keycloak:/opt/keycloak/data/import
     environment:
@@ -47,6 +47,9 @@ services:
       MARIADB_DATABASE: ${MARIADB_KEYCLOAK_DATABASE}
       MARIADB_USER: ${MARIADB_USER}
       MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    volumes:
+      - ./keycloak-db:/var/lib/mysql
+      - ./init-keycloak-db:/docker-entrypoint-initdb.d
 
   mailhog:
     image: mailhog/mailhog:latest
