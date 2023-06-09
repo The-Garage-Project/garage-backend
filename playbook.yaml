@@ -8,8 +8,13 @@
         src: ./.env
         dest: /home/devops/garage-project/.env
 
+    - name: Copy script to export env variables
+      copy:
+        src: ./export-env.sh
+        dest: /home/devops/garage-project/export-env.sh
+
     - name: Export env variables
-      shell: "/bin/sh -c 'export $(grep -v '^#' .env | xargs)'"
+      shell: "/bin/sh -c '/home/devops/garage-project/export-env.sh'"
 
     - name: Copy jar file
       copy:
