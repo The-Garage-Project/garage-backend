@@ -1,0 +1,57 @@
+version: "3.8"
+services:
+  mariadb:
+    image: mariadb
+    container_name: garage-db
+    environment:
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    ports:
+      - ${MARIADB_PORT}:3306
+    volumes:
+      - ./db/:/var/lib/mysql
+      - ./db-init/:/docker-entrypoint-initdb.d
+
+  keycloak:
+    container_name: garage-keycloak
+    image: quay.io/keycloak/keycloak:20.0.1
+    command:
+      - start-dev
+    volumes:
+      - ./docker/keycloak:/opt/keycloak/data/import
+    environment:
+      DB_VENDOR: mariadb
+      DB_ADDR: ${MARIADB_KEYCLOAK_HOST}
+      DB_DATABASE: ${MARIADB_KEYCLOAK_DATABASE}
+      DB_PORT: ${MARIADB_KEYCLOAK_PORT}
+      DB_USER: ${MARIADB_USER}
+      DB_PASSWORD: ${MARIADB_PASSWORD}
+      KEYCLOAK_ADMIN: ${KEYCLOAK_SUPER_ADMIN_USER}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_SUPER_ADMIN_PASS}
+      JGROUPS_DISCOVERY_PROTOCOL: JDBC_PING
+    ports:
+      - ${KEYCLOAK_PORT}:8080
+    depends_on:
+      - mariadb-keycloak
+
+  mariadb-keycloak:
+    image: mariadb
+    container_name: garage-keycloak-db
+    restart: always
+    ports:
+      - ${MARIADB_KEYCLOAK_PORT}:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_KEYCLOAK_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: garage-mailhog
+    restart: always
+    ports:
+      - 1025:1025
+      - 8025:8025
