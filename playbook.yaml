@@ -8,17 +8,6 @@
         src: ./.env
         dest: /home/devops/garage-project/.env
 
-    - name: Export env variables
-      shell: "/bin/sh -c 'set -a && . /home/devops/garage-project/.env && set +a'"
-
-    - name: Debug export
-      shell: "/bin/sh -c 'env'"
-
-    - name: Copy jar file
-      copy:
-        src: ./target/gp-0.0.1-SNAPSHOT.jar
-        dest: /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar
-
     - name: Copy Docker Compose Services file
       copy:
         src: ./docker-compose-services.yaml
@@ -27,5 +16,10 @@
     - name: Start Docker Services
       command: docker compose -f /home/devops/garage-project/docker-compose-services.yaml up -d
 
+    - name: Copy jar file
+      copy:
+        src: ./target/gp-0.0.1-SNAPSHOT.jar
+        dest: /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar
+
     - name: Start java application
-      command: nohup java -jar /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar &
+      command: nohup java -jar /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar --spring.profiles.active=local &
