@@ -8,14 +8,8 @@
         src: ./.env
         dest: /home/devops/garage-project/.env
 
-    - name: Copy script to export env variables
-      copy:
-        src: ./export-env.sh
-        dest: /home/devops/garage-project/export-env.sh
-        mode: '0755'
-
     - name: Export env variables
-      shell: "/bin/sh -c '/home/devops/garage-project/export-env.sh'"
+      shell: "/bin/sh -c 'set -a && . /home/devops/garage-project/.env && set +a'"
 
     - name: Copy jar file
       copy:
@@ -28,17 +22,7 @@
         dest: /home/devops/garage-project/docker-compose-services.yaml
 
     - name: Start Docker Services
-      command: docker  compose -f /home/devops/garage-project/docker-compose-services.yaml up -d
+      command: docker compose -f /home/devops/garage-project/docker-compose-services.yaml up -d
 
     - name: Start java application
       command: nohup java -jar /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar &
-
-#    - name: Copy Docker Compose file
-#      copy:
-#        src: ./docker-compose.yaml
-#        dest: /home/devops/garage-project/docker-compose.yaml
-#
-#    - name: Start Docker Compose services
-#      command: docker compose -f /home/devops/garage-project/docker-compose.yaml up -d
-#
-#    # TODO remove docker deployment. In the repo only bear metal deployment. In the devops repo docker and k8s deployment.
