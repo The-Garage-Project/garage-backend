@@ -22,4 +22,4 @@
         dest: /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar
 
     - name: Start java application
-      shell: "/bin/sh -c 'nohup java -jar /home/devops/garage-project/gp-0.0.1-SNAPSHOT.jar --spring.profiles.active=local &'"
+      shell: "/bin/sh -c 'java -jar target/gp-0.0.1-SNAPSHOT.jar --spring.profiles.active=local >> logs.txt 2>&1 &'"
