@@ -11,6 +11,9 @@
     - name: Export env variables
       shell: "/bin/sh -c 'set -a && . /home/devops/garage-project/.env && set +a'"
 
+    - name: Debug export
+      shell: "/bin/sh -c 'env'"
+
     - name: Copy jar file
       copy:
         src: ./target/gp-0.0.1-SNAPSHOT.jar
