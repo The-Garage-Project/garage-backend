@@ -36,11 +36,16 @@ pipeline {
                         }
             }
         }
+
+        stage('Execute Ansible Playbook') {
+            steps {
+                sh 'ansible-playbook playbook.yaml -u devops'
+            }
+        }
     }
 
     post {
         always {
-            sh 'ansible-playbook playbook.yaml -u devops'
             sh 'docker logout'
         }
 
