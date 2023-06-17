@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "45f37cea-258e-4d5f-a438-a2a3ba16a177",
+		"name": "The-Garage-Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Cars",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhTXREbHFrdnpxekRpcHg1eWNCMEVHREdZV05VWTB0eEU2VThTdm51VWljIn0.eyJleHAiOjE2ODM2NTM2NjksImlhdCI6MTY4MzY1MzM2OSwianRpIjoiZjNkYmZkYzEtZGY4NS00YTEwLWE1MDYtNjE4MzA2Mjk2NGMzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg3L3JlYWxtcy9nYXJhZ2UtcHJvamVjdCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhNTM2Y2YwZC0yYjhlLTRlODQtOGY4ZS04MTBmNzJkZTBlMjMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJnYXJhZ2UtcHJvamVjdCIsInNlc3Npb25fc3RhdGUiOiIwNjc5NGYyOC0wMDMxLTQzNmQtYjYxMi1jMTU1YmZhMzdkOGUiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1nYXJhZ2UtcHJvamVjdCIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjA2Nzk0ZjI4LTAwMzEtNDM2ZC1iNjEyLWMxNTViZmEzN2Q4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXJhZ2UtcHJvamVjdCIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiJ9.lxZbXmEXhu4kDr_-5Pk3j_-UBNSfJ-xRUrVtBa_8qqZx26uSrPgeaQP4WJvP6cb7ZWaKtJrmAo6F0ugNCl7Ve2XE0QnYrY0Z7rV6dfXW74TJxW4TWLDYNGbLgPYYcarty3U73fUIQsf13egTToV-gyd8oPFlRALw9UkV9cD9rGNZoXxI_nxz13wOP2dGSwP_9cfyXycOgqoNP4vLlF2Q3e5iEPlHlWq3ot7DtkGkgocHLUZxjyHIsEciiTVPHXSll9oL1fLowAdDyL1bvAfnMuhNSAC7uBs3P93B39liH7quo4M4MiAxDawFFsIVVClOFNkzXj2_JTSpQ9JzDOzoHg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/car/get-all",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"car",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brandName\": {\r\n        \"id\": 1,\r\n        \"name\": \"Ford\"\r\n    },\r\n    \"model\": \"Focus\",\r\n    \"yearOfMake\": \"2022\",\r\n    \"engineSize\": \"2300\",\r\n    \"horsePower\": \"280\",\r\n    \"transmission\": \"MANUAL\",\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"category\": \"Hatchback\"\r\n    },\r\n    \"color\": \"Dark Grey\",\r\n    \"numberPlate\": \"AXB1968\",\r\n    \"numDoors\": 5,\r\n    \"numChairs\": 5,\r\n    \"fuelType\": \"PETROL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/car/add",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"car",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/car/3",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"car",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Car",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"brandName\": {\r\n        \"id\": 1,\r\n        \"name\": \"Ford\"\r\n    },\r\n    \"model\": \"Fiesta\",\r\n    \"yearOfMake\": \"2010\",\r\n    \"engineSize\": \"1600\",\r\n    \"horsePower\": \"120\",\r\n    \"transmission\": \"MANUAL\",\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"category\": \"Hatchback\"\r\n    },\r\n    \"color\": \"Black\",\r\n    \"numberPlate\": \"AXB1968\",\r\n    \"numDoors\": 3,\r\n    \"numChairs\": 5,\r\n    \"fuelType\": \"PETROL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/car/4",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"car",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Car By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/car/5",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"car",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Brands",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhTXREbHFrdnpxekRpcHg1eWNCMEVHREdZV05VWTB0eEU2VThTdm51VWljIn0.eyJleHAiOjE2ODM2NTM2NjksImlhdCI6MTY4MzY1MzM2OSwianRpIjoiZjNkYmZkYzEtZGY4NS00YTEwLWE1MDYtNjE4MzA2Mjk2NGMzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg3L3JlYWxtcy9nYXJhZ2UtcHJvamVjdCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhNTM2Y2YwZC0yYjhlLTRlODQtOGY4ZS04MTBmNzJkZTBlMjMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJnYXJhZ2UtcHJvamVjdCIsInNlc3Npb25fc3RhdGUiOiIwNjc5NGYyOC0wMDMxLTQzNmQtYjYxMi1jMTU1YmZhMzdkOGUiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1nYXJhZ2UtcHJvamVjdCIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjA2Nzk0ZjI4LTAwMzEtNDM2ZC1iNjEyLWMxNTViZmEzN2Q4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXJhZ2UtcHJvamVjdCIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiJ9.lxZbXmEXhu4kDr_-5Pk3j_-UBNSfJ-xRUrVtBa_8qqZx26uSrPgeaQP4WJvP6cb7ZWaKtJrmAo6F0ugNCl7Ve2XE0QnYrY0Z7rV6dfXW74TJxW4TWLDYNGbLgPYYcarty3U73fUIQsf13egTToV-gyd8oPFlRALw9UkV9cD9rGNZoXxI_nxz13wOP2dGSwP_9cfyXycOgqoNP4vLlF2Q3e5iEPlHlWq3ot7DtkGkgocHLUZxjyHIsEciiTVPHXSll9oL1fLowAdDyL1bvAfnMuhNSAC7uBs3P93B39liH7quo4M4MiAxDawFFsIVVClOFNkzXj2_JTSpQ9JzDOzoHg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/brand/get-all",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"brand",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Brand By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/brand/53",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"brand",
+						"53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Brand",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"blabla\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/brand/add",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"brand",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Brand",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/brand/53",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"brand",
+						"53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhTXREbHFrdnpxekRpcHg1eWNCMEVHREdZV05VWTB0eEU2VThTdm51VWljIn0.eyJleHAiOjE2ODM2NTM2NjksImlhdCI6MTY4MzY1MzM2OSwianRpIjoiZjNkYmZkYzEtZGY4NS00YTEwLWE1MDYtNjE4MzA2Mjk2NGMzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg3L3JlYWxtcy9nYXJhZ2UtcHJvamVjdCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhNTM2Y2YwZC0yYjhlLTRlODQtOGY4ZS04MTBmNzJkZTBlMjMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJnYXJhZ2UtcHJvamVjdCIsInNlc3Npb25fc3RhdGUiOiIwNjc5NGYyOC0wMDMxLTQzNmQtYjYxMi1jMTU1YmZhMzdkOGUiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1nYXJhZ2UtcHJvamVjdCIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjA2Nzk0ZjI4LTAwMzEtNDM2ZC1iNjEyLWMxNTViZmEzN2Q4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJnYXJhZ2UtcHJvamVjdCIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiJ9.lxZbXmEXhu4kDr_-5Pk3j_-UBNSfJ-xRUrVtBa_8qqZx26uSrPgeaQP4WJvP6cb7ZWaKtJrmAo6F0ugNCl7Ve2XE0QnYrY0Z7rV6dfXW74TJxW4TWLDYNGbLgPYYcarty3U73fUIQsf13egTToV-gyd8oPFlRALw9UkV9cD9rGNZoXxI_nxz13wOP2dGSwP_9cfyXycOgqoNP4vLlF2Q3e5iEPlHlWq3ot7DtkGkgocHLUZxjyHIsEciiTVPHXSll9oL1fLowAdDyL1bvAfnMuhNSAC7uBs3P93B39liH7quo4M4MiAxDawFFsIVVClOFNkzXj2_JTSpQ9JzDOzoHg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/car/search/ford",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"car",
+						"search",
+						"ford"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "garage-project",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "garage-project",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "garage-project",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "host.docker.internal:8087/realms/garage-project/protocol/openid-connect/token",
+					"host": [
+						"host",
+						"docker",
+						"internal"
+					],
+					"port": "8087",
+					"path": [
+						"realms",
+						"garage-project",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "garage-project",
+							"type": "default"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhTXREbHFrdnpxekRpcHg1eWNCMEVHREdZV05VWTB0eEU2VThTdm51VWljIn0.eyJleHAiOjE2ODQwNjkwNzUsImlhdCI6MTY4NDA2ODc3NSwianRpIjoiZWJjZjI2ZmYtMTJkYS00ODA3LThhYmMtMjVlZDZhYWNmMTg2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg3L3JlYWxtcy9nYXJhZ2UtcHJvamVjdCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhNTM2Y2YwZC0yYjhlLTRlODQtOGY4ZS04MTBmNzJkZTBlMjMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJnYXJhZ2UtcHJvamVjdCIsInNlc3Npb25fc3RhdGUiOiIxZDA4ZTVlMi04OTc4LTQ4NzUtYTkyZi1iNjdlMzlhNTg2MzIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWdhcmFnZS1wcm9qZWN0IiwidW1hX2F1dGhvcml6YXRpb24iLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiMWQwOGU1ZTItODk3OC00ODc1LWE5MmYtYjY3ZTM5YTU4NjMyIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInByZWZlcnJlZF91c2VybmFtZSI6ImdhcmFnZS1wcm9qZWN0IiwiZ2l2ZW5fbmFtZSI6IiIsImZhbWlseV9uYW1lIjoiIn0.WipgTNF4FfX7bMm6w-FAfBEjCqBO3tBFWHO_UjS5OT0I3vqU4Ok7Eo7FY1uKcNQzdPYKciksDUph62T0AZL2cPxz3wIN1KXevNcp3RlD00a5X7SRgj2ICIn-0BqiFyJx6TvbRNnhnjMA9xoOtnqQOCymuOHQuUGHLytrEX9BOMxSKx0u9qAv42JLFYY8xkyfe1qxEsaCRlmSf_iZu-hxbwO4EiUgPX3QojPPB1jnmrCLYw5o8LHAypc7WZf8lNV4-EgDv7Om3leATxnn9s0CKPbc0lTaH6dvg13kKWctgA1P2gQLSmb4mzbx_l8SibH5O12Oe2BsWUhHeXO-zp2U_g",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "host.docker.internal:8087/realms/garage-project/protocol/openid-connect/token",
+					"host": [
+						"host",
+						"docker",
+						"internal"
+					],
+					"port": "8087",
+					"path": [
+						"realms",
+						"garage-project",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhTXREbHFrdnpxekRpcHg1eWNCMEVHREdZV05VWTB0eEU2VThTdm51VWljIn0.eyJleHAiOjE2ODQwNjkxNTQsImlhdCI6MTY4NDA2ODg1NCwianRpIjoiOGYxYTc1MWQtOTg2My00ODE4LWE4ZDUtNzdhZmVjNDYwM2Y0IiwiaXNzIjoiaHR0cDovL2hvc3QuZG9ja2VyLmludGVybmFsOjgwODcvcmVhbG1zL2dhcmFnZS1wcm9qZWN0IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImE1MzZjZjBkLTJiOGUtNGU4NC04ZjhlLTgxMGY3MmRlMGUyMyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImdhcmFnZS1wcm9qZWN0Iiwic2Vzc2lvbl9zdGF0ZSI6ImJhOTUwMTE1LWY3NTgtNDEwNC1hNmIxLWM3NmQ0YzYwZTkxNyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtZ2FyYWdlLXByb2plY3QiLCJ1bWFfYXV0aG9yaXphdGlvbiIsInVzZXIiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJiYTk1MDExNS1mNzU4LTQxMDQtYTZiMS1jNzZkNGM2MGU5MTciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiZ2FyYWdlLXByb2plY3QiLCJnaXZlbl9uYW1lIjoiIiwiZmFtaWx5X25hbWUiOiIifQ.SBXqQf2v6AZ2v8Y9ns1AHYLy0JqMEuS52ke1WQLAe4PjXz82XlUDHu8vuFUo-FGZCHzoqv9HlvXks4lSfiT7v1xaCCjMWTq-At0LB23DxpygNMYvY_NBiFjVx4ucABXsHXMX8tOh27H3bZFE-hR-9R5-ehcM6YK_XSVVPB-2ONPJ4KnrrZQrzI80f6veLAtRInCNt6xkGFKytZ3Zc3tNyqcs1IRLhxqUO7t-EwTwgDJeCDIFJLyC-z1kVhPV08Ca5Z-sJyzDiub2QsBH40QI0u5W-etqFU7WUBt7RjkoxS5tsgQ5DFT8E_aT9iJInRW8579AGDYwT7kFsmI9PPlXYA",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"receiver\": \"spirosgsaaa@gmail.com\",\r\n    \"subject\": \"Test Email\",\r\n    \"text\": \"Hello World\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/app/garage/mail/send-mail",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"app",
+						"garage",
+						"mail",
+						"send-mail"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "default"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "default"
+		}
+	]
+}

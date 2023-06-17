@@ -16,30 +16,34 @@ pipeline {
             }
         }
 
-        stage('Build Backend Maven') {
-            steps {
-                sh 'mvn clean install -DskipTests'
+        parallel {
+            stage('Build Backend Maven') {
+                steps {
+                    sh 'mvn clean install -DskipTests'
+                }
+            }
+
+            stage('Build Docker Image') {
+                steps {
+                    sh 'docker build -t spyrosmoux/garage-backend:latest .'
+                }
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                sh 'docker build -t spyrosmoux/garage-backend:latest .'
+        parallel {
+            stage('Push Docker Image') {
+                steps {
+                    withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDENTIALS', passwordVariable: 'DOCKER_CREDENTIALS_PSW', usernameVariable: 'DOCKER_CREDENTIALS_USR')]) {
+                                sh "docker login -u ${env.DOCKER_CREDENTIALS_USR} -p ${env.DOCKER_CREDENTIALS_PSW}"
+                              sh 'docker push spyrosmoux/garage-backend:latest'
+                            }
+                }
             }
-        }
 
-        stage('Push Docker Image') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDENTIALS', passwordVariable: 'DOCKER_CREDENTIALS_PSW', usernameVariable: 'DOCKER_CREDENTIALS_USR')]) {
-                        	sh "docker login -u ${env.DOCKER_CREDENTIALS_USR} -p ${env.DOCKER_CREDENTIALS_PSW}"
-                          sh 'docker push spyrosmoux/garage-backend:latest'
-                        }
-            }
-        }
-
-        stage('Execute Ansible Playbook') {
-            steps {
-                sh 'ansible-playbook playbook.yaml -u devops'
+            stage('Execute Ansible Playbook') {
+                steps {
+                    sh 'ansible-playbook playbook.yaml -u devops'
+                }
             }
         }
     }
