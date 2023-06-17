@@ -45,7 +45,7 @@ pipeline {
 
                 stage('Execute Ansible Playbook') {
                     steps {
-                        sh 'ansible-playbook playbook.yaml -u devops'
+                        sh 'ansible-playbook playbook.yaml'
                     }
                 }
             }
