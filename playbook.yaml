@@ -1,5 +1,5 @@
 ---
-- name: Deploy Docker Compose
+- name: Deploy Services in Docker and Jar
   hosts: localhost
 
   tasks:
