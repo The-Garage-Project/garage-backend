@@ -6,15 +6,15 @@
     - name: Copy .env file for java application
       copy:
         src: ./.env
-        dest: /home/devops/docker-services/.env
+        dest: /home/devops/garage-project-docker/.env
 
     - name: Copy Docker Compose Services file
       copy:
         src: ./docker-compose-services.yaml
-        dest: /home/devops/docker-services/docker-compose-services.yaml
+        dest: /home/devops/garage-project-docker/docker-compose-services.yaml
 
     - name: Start Docker Services
-      command: docker compose -f /home/devops/docker-services/docker-compose-services.yaml up -d
+      command: docker compose -f /home/devops/garage-project-docker/docker-compose-services.yaml up -d
 
     - name: Copy jar file
       copy:
