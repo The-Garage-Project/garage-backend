@@ -29,6 +29,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
+                .requestMatchers("/health-check").permitAll()
                 .requestMatchers("/**").authenticated()
                 .anyRequest().permitAll();
         http.oauth2Login()
