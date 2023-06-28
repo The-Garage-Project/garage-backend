@@ -14,7 +14,7 @@ services:
       - KEYCLOAK_REALM=${KEYCLOAK_REALM}
       - BACKEND_PORT=${BACKEND_PORT}
     ports:
-      - ${BACKEND_PORT}:8081
+      - ${BACKEND_PORT}:8080
     restart: always
     networks:
       garage-net:
