@@ -14,10 +14,10 @@ import java.util.Optional;
 @RequestMapping("/brand")
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin
 public class BrandController {
     private final BrandService brandService;
     @GetMapping("/get-all")
-    @CrossOrigin
     public Iterable<Brand> getAll() {
         return brandService.findAll();
     }
@@ -34,7 +34,6 @@ public class BrandController {
     }
 
     @GetMapping("/{id}")
-    @CrossOrigin
     public ResponseEntity<Optional<Brand>> getById(@PathVariable Long id) {
         Optional<Brand> brand = brandService.findById(id);
         if (brand.isEmpty()) {
@@ -44,7 +43,6 @@ public class BrandController {
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin
     public ResponseEntity<HttpStatus> deleteBrand(@PathVariable Long id) {
         try {
             brandService.deleteBrand(id);
