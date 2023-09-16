@@ -19,11 +19,13 @@ public class CarController {
     private final CarService carService;
 
     @GetMapping("/get-all")
+    @CrossOrigin
     public @ResponseBody Iterable<Car> getAll() {
         return carService.findAll();
     }
 
     @PostMapping("/add")
+    @CrossOrigin
     public ResponseEntity<HttpStatus> saveCar(@RequestBody Car carToAdd) {
         try {
             carService.saveCar(carToAdd);
@@ -35,6 +37,7 @@ public class CarController {
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin
     public ResponseEntity<Optional<Car>> getById(@PathVariable Long id) {
         Optional<Car> car = carService.findById(id);
         if (car.isEmpty()) {
@@ -44,6 +47,7 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin
     public ResponseEntity<Car> updateCar(@RequestBody Car car, @PathVariable Long id) {
         try {
             carService.updateCar(car, id);
@@ -56,6 +60,7 @@ public class CarController {
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin
     public ResponseEntity<HttpStatus> deleteCar(@PathVariable Long id) {
         try {
             carService.deleteCar(id);
@@ -68,6 +73,7 @@ public class CarController {
     }
 
     @GetMapping("/search/{searchKeyword}")
+    @CrossOrigin
     public ResponseEntity<Iterable<Car>> search(@PathVariable String searchKeyword) {
         List<Car> results;
         try {
